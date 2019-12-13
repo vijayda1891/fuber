@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_062739) do
+ActiveRecord::Schema.define(version: 2019_12_13_110011) do
 
   create_table "cabs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "car_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_062739) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -29,17 +30,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_062739) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.float "latitude"
-    t.float "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "cab_id"
-    t.bigint "customer_id"
-    t.index ["cab_id"], name: "index_locations_on_cab_id"
-    t.index ["customer_id"], name: "index_locations_on_customer_id"
+    t.string "address"
   end
 
   create_table "rides", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,8 +45,6 @@ ActiveRecord::Schema.define(version: 2019_12_13_062739) do
     t.index ["customer_id"], name: "index_rides_on_customer_id"
   end
 
-  add_foreign_key "locations", "cabs"
-  add_foreign_key "locations", "customers"
   add_foreign_key "rides", "cabs"
   add_foreign_key "rides", "customers"
 end
