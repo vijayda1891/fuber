@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- The book cab and assign cab api's are present in the Customer Controller (app/controllers/api/v1/customer_controller)
 
-Things you may want to cover:
+- The End Trip api is present in the Cab Controller (app/controllers/api/v1/customer_controller)
 
-* Ruby version
+- Different Model used is present under App/models
 
-* System dependencies
+- the names of the Api's are present in the routes.rb file (config/routes.rb)
 
-* Configuration
+- For the cab_booking api you must pass Customer_id along with the Api (Post Request)
 
-* Database creation
+- For the find_near_by_cab api you must pass ride_id along with the Api (Get Reequest)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- For the end_ride api you must pass ride_id along with the Api (Post Request)
