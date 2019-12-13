@@ -5,8 +5,9 @@ class Api::V1::CustomerController < ApplicationController
 	def cab_booking
 		@ride = Ride.new
 		ride_attr = {
-			pickup: params[:pickup].geocode
-			drop: params[:drop].geocode
+			pickup: params[:pickup].geocode,
+			drop: params[:drop].geocode,
+			color: params[:color]
 		}
 		@ride.attributes = ride_attr
 		@ride.valid?
@@ -26,8 +27,8 @@ class Api::V1::CustomerController < ApplicationController
 		@longitude = @ride.pickup[1]
 		
 		@cab = Cab.Location.near([@latitude, @longitude], 4, :order => :distance).limit(1)
-		if @ride.color == "pink"
-			if @cab.status == 1 
+		if @ride.color == "pink" 
+			if @cab.status == 1 && @cab.car_color == "pink"
 				@ride.cab = @cab
 				@ride.save!
 				render :json => { message: "Cab is on its way to pick you up!" }, status: 200
