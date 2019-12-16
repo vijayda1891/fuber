@@ -13,3 +13,5 @@
 - For the find_near_by_cab api you must pass ride_id along with the Api (Get Reequest)
 
 - For the end_ride api you must pass ride_id along with the Api (Post Request)
+
+- Using Geocoder gem for the purpose of getting latitude and longitude as well distance between 2 points
