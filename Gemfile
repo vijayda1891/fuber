@@ -55,4 +55,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # geocoder gem for getting lat long
-gem 'geocoder', '~> 1.5', '>= 1.5.2'
+gem 'geocoder', '~> 1.6'
